@@ -1,0 +1,58 @@
+<aside class="nav-wrap sub-nav"
+       ng-include=" 'modules/tasks/views/salesmen-task-nav.html'">
+</aside>
+
+<section>
+<div class="page-mini" ng-include=" 'modules/tasks/views/create-task.client.view.html'"></div>
+</section>
+
+<section class="page-mini" style="margin-top:0px;!important;" data-ng-controller="SalesmenController" data-ng-init="findOne()">
+
+    <md-card>
+        <md-toolbar class="md-whiteframe-1dp info">
+            <div class="md-toolbar-tools">
+                <span>{{salesman.name}}'s Task List</span>
+                <div flex></div>
+                Total: {{salesman.tasks.length}} &nbsp;
+                <button class="btn-success" ng-click="cancelTask()">Add Task</button>
+            </div>
+        </md-toolbar>
+
+
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column><span>Status</span></th>
+                    <th md-column><span>Name</span></th>
+                    <th md-column><span>Address</span></th>
+                    <th md-column><span>user</span></th>
+                    <th md-column><span>Date</span></th>
+                    <!--<th md-column ng-repeat="(key, value) in task.destination" ng-if="key != '__v' && key !='_id'">-->
+                        <!--<span>{{key}}</span>-->
+                    <!--</th>-->
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="(key, task) in salesman.tasks track by $index">
+                    <td md-cell>{{task.status}}</td>
+                    <td md-cell>{{task.destination.name}}</td>
+                    <td md-cell>{{task.destination.address}}</td>
+                    <td md-cell>{{task.destination.name}}</td>
+                    <td md-cell>{{task.created}}</td>
+                </tr>
+                <!--<tr md-row ng-repeat="(key, data) in salesman.tasks track by $index">-->
+                    <!--<td md-cell ng-repeat="key in notSorted(data) track by $index" ng-init="value = data[key]">{{value}}</td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <!--<md-table-pagination md-limit="1" md-page="1" md-total="{{salesman.tasks.length}}" md-page-select="1" md-boundary-links="false"></md-table-pagination>-->
+
+    </md-card>
+
+    <div class="alert alert-warning text-center" data-ng-hide="!salesman.$resolved || salesman.length">
+    	No Salesmen yet, why don't you <a href="/#!/salesmen/create">create one</a>?
+    </div>
+</section>

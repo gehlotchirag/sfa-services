@@ -1,0 +1,23 @@
+<aside class="nav-wrap sub-nav"
+       ng-include=" 'modules/salesmen/views/salesmen-nav.html'">
+</aside>
+
+<section class="page-mini" data-ng-controller="SalesmenController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Field Users</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="salesman in salesmen" data-ng-href="#!/salesmen/{{salesman._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="salesman.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="salesman.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="salesman.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!salesmen.$resolved || salesmen.length">
+    	No Salesmen yet, why don't you <a href="/#!/salesmen/create">create one</a>?
+    </div>
+</section>

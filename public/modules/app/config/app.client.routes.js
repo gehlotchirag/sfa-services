@@ -26,6 +26,10 @@ angular.module('app')
               url: '/prescription',
               templateUrl: 'modules/app/views/tables/tables.html'
             }).
+            state('forms', {
+              url: '/forms',
+          templateUrl: 'modules/app/views/forms/elements.html'
+            }).
             state('invoices', {
               url: '/invoices',
               templateUrl: 'modules/app/views/pages/invoice.html'

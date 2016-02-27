@@ -36,7 +36,7 @@ angular.module("app", [
       cfpLoadingBarProvider.latencyThreshold = 500;
     }])
 
-  // lazy loading scripts refernces of angular modules only
+    // lazy loading scripts refernces of angular modules only
     .config(["$ocLazyLoadProvider", function($oc) {
       $oc.config({
         debug: true,
@@ -58,6 +58,10 @@ angular.module("app", [
           {
             name: "ui.select",
             files: ["/modules/app/controllers/lazyload/select.min.js", "/modules/app/styles/lazyload/select.css"]
+          },
+          {
+            name: "xlsx",
+            files: ["/lib/js-xlsx/xlsx.js"]
           },
           {
             name: "ngTagsInput",

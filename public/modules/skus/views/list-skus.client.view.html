@@ -1,0 +1,39 @@
+<section class="page" data-ng-controller="SkusController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Skus</h1>
+    </div>
+    <md-card data-ng-repeat="sku in skus">
+
+        <md-toolbar class="md-whiteframe-1dp info">
+            <div class="md-toolbar-tools">
+                <span>SKU File</span>
+                <div flex></div>
+                Total: {{sku.products.length}} &nbsp;
+                <button class="btn-success" ng-click="find()">Refresh</button>
+            </div>
+        </md-toolbar>
+
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                <tr md-row ng-repeat="product in sku.products | limitTo:1">
+                    <th md-column ng-repeat="(key, value) in product" ng-if="key != '__v' && key !='_id'">
+                        <span>{{key}}</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-select="dessert" ng-repeat="(key, data) in sku.products track by $index">
+                    <td md-cell ng-repeat="key in notSorted(data) track by $index" ng-init="value = data[key]">{{value}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="1" md-page="1" md-total="{{DispData.ExcelObj.length}}" md-page-select="1" md-boundary-links="false"></md-table-pagination>
+    </md-card>
+
+    <div class="alert alert-warning text-center" data-ng-hide="!skus.$resolved || skus.length">
+    	No Skus yet, why don't you <a href="/#!/skus/create">create one</a>?
+    </div>
+</section>

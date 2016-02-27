@@ -1,0 +1,13 @@
+<aside class="nav-wrap sub-nav"
+       ng-include=" 'modules/tackings/views/salesmen-tracking-nav.html'">
+</aside>
+
+<section class="page-mini" data-ng-controller="TrackingsController">
+    <div class="panel mini-box">
+        <div class="panel-body">
+            <map zoom="13" center="42.360082,-71.05888">
+                <marker ng-repeat="doctor in visitingDoctor" position="{{doctor.location[1]}}, {{doctor.location[0]}}" on-click="showInfoWindowz(event, doctor)"></marker>
+            </map>
+        </div>
+    </div>
+</section>

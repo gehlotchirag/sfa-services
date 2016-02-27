@@ -17,18 +17,21 @@ module.exports = {
       //  'public/lib/bootstrap/dist/css/bootstrap-theme.css',
       //],
       css: [
-        'public/modules/app/styles/vendors/angular-material.min.css',
+          'http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css',
+        //'public/modules/app/styles/vendors/angular-material.min.css',
         'public/modules/app/styles/vendors/bootstrap.min.css',
         'public/modules/app/_tmp/main.min.css'
       ],
       js: [
         'public/lib/jquery/dist/jquery.js',
-        'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js',
+        'public/lib/angular/angular.js',
+        //'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js',
         'public/lib/ng-file-upload/ng-file-upload-shim.min.js',
         'public/lib/ng-file-upload/ng-file-upload.min.js',
         //'public/lib/angular/angular.js',
         //'public/lib/vendors/angular.min.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.js',
+        'public/lib/angular-animate/angular-animate.js',
+        //'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.js',
         'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-cookies.min.js',
         //'public/lib/angular-resource/angular-resource.js',
@@ -63,7 +66,7 @@ module.exports = {
         //'public/modules/app/controllers/models/js/orbit.js',
         'public/lib/angular-google-places-autocomplete/src/autocomplete.js',
         'public/modules/app/SimpleWebRTC/socket.io.js',
-          'public/lib/xml2json/xml2json.js',
+          'public/lib/angular-material-data-table/dist/md-data-table.min.js',
           'public/lib/ngmap/build/scripts/ng-map.min.js'
       ]
     },

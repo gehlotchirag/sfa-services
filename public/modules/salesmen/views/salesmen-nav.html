@@ -1,0 +1,31 @@
+
+<nav class="site-nav clearfix" role="navigation" data-ng-controller="SalesmenController" data-ng-init="find()">
+
+    <div class="profile clearfix mb15">
+        <a type="button" href="/#!/salesmen/create" class="btn btn-info btn-lg btn-block" md-ink-ripple>
+            <i class="ion ion-person-add"></i>Add User</a>
+        <button type="button" class="btn btn-success btn-lg btn-block" md-ink-ripple>
+            <i class="ion ion-ios-people"></i>Add Manager</button>
+
+    </div>
+
+    <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active>
+        <li data-ng-repeat="salesman in salesmen">
+            <a data-ng-href="#!/salesmen/{{salesman._id}}" md-ink-ripple style="padding: 0px">
+                <div class="profile clearfix">
+                    <img src="modules/app/images/admin.jpg" alt="admin">
+                    <div class="group">
+                        <b class="name text-uppercase" ng-bind="salesman.name"></b><br>
+                        <!--<span class="pull-right" style="padding-right: 10px"><i class="info">11</i>/<i>20</i></span>-->
+                        <small class="desig ">
+                            <i class="ion-location"></i> Malad west, Mumbai
+                            <p style="font-size: x-small;" data-ng-bind="salesman.created | date:'medium'"></p>
+                        </small>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+
+</nav>

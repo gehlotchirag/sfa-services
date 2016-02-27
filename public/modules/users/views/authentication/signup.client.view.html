@@ -4,7 +4,7 @@
     <div class="auth-container">
 
       <div class="form-head mb20">
-        <h1 class="site-logo h2 mb20 mt5 text-center text-uppercase text-bold"><a href="/">TECHWISS DASHBOARD</a></h1>
+        <h1 class="site-logo h2 mb20 mt5 text-center text-uppercase text-bold"><a href="/">DASHBOARD</a></h1>
         <!--<p class="small">Already have an account. <a href="#!/signin">Sign In Now</a></p>-->
       </div>
       <div class="form-container">
@@ -14,10 +14,13 @@
             <md-radio-group ng-model="credentials.accountType">
               <div layout="row">
                 <div flex>
-                  <md-radio-button value="patient" class="md-primary"> Patient </md-radio-button>
+                  <md-radio-button value="Company" class="md-primary"> Company </md-radio-button>
                 </div>
                 <div flex>
-                <md-radio-button value="doctor">Doctor</md-radio-button>
+                <md-radio-button value="Manager">Manager</md-radio-button>
+                  </div>
+                <div flex>
+                <md-radio-button value="Salesman">Salesman</md-radio-button>
                   </div>
               </div>
           </md-radio-group>

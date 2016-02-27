@@ -17,6 +17,10 @@
     "angular-google-places-autocomplete": "~0.2.7",
     "ng-file-upload": "~7.0.9",
     "xml2json": "~1.1.1",
-    "ngmap": "~1.11.5"
+    "ngmap": "~1.11.5",
+    "jszip": "Stuk/jszip#~2.5.0",
+    "js-xls": "~0.7.5",
+    "js-xlsx": "~0.8.0",
+    "angular-material-data-table": "~0.9.11"
   }
 }

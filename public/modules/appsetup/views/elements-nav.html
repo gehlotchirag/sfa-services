@@ -1,0 +1,82 @@
+
+<nav class="site-nav clearfix" role="navigation" data-ng-controller="SalesmenController" data-ng-init="find()">
+
+    <div class="profile clearfix mb15">
+
+        <accordion class="accordion-panel nav-list">
+
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    Forms<i class="right mt2 ion small" ng-class="{'ion-chevron-down': status.open, 'ion-chevron-right': !status.open}" style="    color: initial;"></i>
+                </accordion-heading>
+                <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active style="margin: -22px;">
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-navicon-round"></i>
+                            <span class="text">TextBox</span>
+                        </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-toggle-filled"></i>
+                        <span class="text">Toggle</span>
+                    </a></li>
+
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-checkmark-circled"></i>
+                        <span class="text">checkbox</span>
+                    </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-android-chat"></i>
+                        <span class="text">Comments</span>
+                    </a></li>
+
+                </ul>
+
+            </accordion-group>
+
+            <accordion-group heading="Order" is-open="true">
+                <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active style="margin: -22px;">
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-ios-search-strong"></i>
+                            <span class="text">SKU Search</span>
+                        </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-clipboard"></i>
+                            <span class="text">Order Form</span>
+                        </a></li>
+                    </ul>
+
+            </accordion-group>
+
+
+            <accordion-group is-open="status2.open">
+                <accordion-heading>
+                    Extra<i class="right mt2 ion small" ng-class="{'ion-chevron-down': status2.open, 'ion-chevron-right': !status2.open}" style="    color: initial;"></i>
+                </accordion-heading>
+                <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active style="margin: -22px;">
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-edit"></i>
+                            <span class="text">Signing</span>
+                        </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-ios-camera"></i>
+                        <span class="text">Camera</span>
+                    </a></li>
+
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-ios-location"></i>
+                        <span class="text">Tracking</span>
+                    </a></li>
+
+                </ul>
+
+            </accordion-group>
+        </accordion>
+
+    </div>
+
+
+
+</nav>

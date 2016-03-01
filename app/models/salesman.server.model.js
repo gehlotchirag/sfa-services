@@ -86,6 +86,9 @@ var SalesmanSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
+  companyId:    {
+    type: Schema.ObjectId
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

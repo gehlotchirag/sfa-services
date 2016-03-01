@@ -8,6 +8,7 @@ var _ = require('lodash'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User');
+var fs = require('fs');
 
 /**
  * Signup
@@ -23,6 +24,7 @@ exports.signup = function(req, res) {
 	// Add missing user fields
 	user.provider = 'local';
 	user.displayName = user.firstName + ' ' + user.lastName;
+	user.username = user.email;
 
 	// Then save the user 
 	user.save(function(err) {
@@ -39,7 +41,32 @@ exports.signup = function(req, res) {
 				if (err) {
 					res.status(400).send(err);
 				} else {
-					res.json(user);
+
+          var htmlTemplate = '<div class="filter-bar-wrapper filter-bar-positive ">'+
+              '    <div class="row bar bar-header bar-stable item-input-inset">'+
+              '        <div class="col col-50">'+
+              '            <label class="item-input-wrapper" style="background: white;"><i class="icon ion-compose placeholder-icon"></i><input type="search" class="filter-bar-search ng-pristine ng-valid ng-touched" ng-model="customProduct.name" placeholder="Item Name"><button class="filter-bar-clear button button-icon icon filter-bar-element-hide" ng-class="getClearButtonClass()"></button></label>'+
+              '        </div>'+
+              '        <div class="col col-30">'+
+              '            <label class="item-input-wrapper" style="background: white;"><i class="icon ion-funnel placeholder-icon"></i><input type="search" class="filter-bar-search ng-pristine ng-valid ng-touched" ng-model="customProduct.customQuantity" placeholder="Qty"><button class="filter-bar-clear button button-icon icon filter-bar-element-hide" ng-class="getClearButtonClass()"></button></label>'+
+              '        </div>'+
+              '        <div class="col col-10">'+
+              '            <button class="filter-bar-cancel button button-clear" ng-click="addcustomProduct(customProduct)">Add </button>'+
+              '        </div>'+
+              '    </div>'+
+              ''+
+              '</div>';
+
+          var dirname = "public/AppFolder/"+user.companyId+"/";
+          console.log(dirname);
+          fs.existsSync(dirname) || fs.mkdirSync(dirname);
+          fs.writeFile(dirname+'/app.html', htmlTemplate, function (err,data) {
+            if (err) {
+              return console.log(err);
+            }
+            console.log(data);
+          });
+          res.json(user);
 				}
 			});
 		}

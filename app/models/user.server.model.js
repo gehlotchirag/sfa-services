@@ -31,6 +31,16 @@ var UserSchema = new Schema({
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your first name']
 	},
+  CompanyName: {
+    type: String,
+    trim: true,
+    default: '',
+    validate: [validateLocalStrategyProperty, 'Please fill in your first name']
+  },
+  companyId:    {
+    type: mongoose.Schema.ObjectId,
+    default: mongoose.Types.ObjectId
+  },
   accountType: {
     type: String,
     required: 'Please select an Account Type'

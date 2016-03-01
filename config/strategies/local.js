@@ -14,8 +14,10 @@ module.exports = function() {
 			passwordField: 'password'
 		},
 		function(username, password, done) {
+      console.log("*****")
+      console.log(username, password)
 			User.findOne({
-				username: username
+        username: username
 			}, function(err, user) {
 				if (err) {
 					return done(err);

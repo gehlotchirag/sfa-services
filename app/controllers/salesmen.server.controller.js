@@ -12,10 +12,13 @@ var mongoose = require('mongoose'),
  * Create a Salesman
  */
 exports.create = function(req, res) {
-  console.log(req.body)
+
 	var salesman = new Salesman(req.body);
+console.log(req.body)
+console.log("***")
+console.log(req.user)
 	salesman.user = req.user;
-  console.log(salesman)
+  salesman.companyId = req.user.companyId;
 
 	salesman.save(function(err) {
 		if (err) {
@@ -76,16 +79,30 @@ exports.delete = function(req, res) {
  * List of Salesmen
  */
 exports.list = function(req, res) {
-	Salesman.find().sort('-created').populate('user', 'displayName').exec(function(err, salesmen) {
+  var companyId = req.user.companyId;
+	Salesman.find({companyId:companyId}).sort('-created').populate('user', 'displayName').exec(function(err, salesmen) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+      console.log(salesmen);
 			res.jsonp(salesmen);
 		}
 	});
 };
+
+//exports.listById = function(req, res) {
+//	Salesman.find({companyID:req.param('companyID')}).sort('-created').populate('user', 'displayName').exec(function(err, salesmen) {
+//		if (err) {
+//			return res.status(400).send({
+//				message: errorHandler.getErrorMessage(err)
+//			});
+//		} else {
+//			res.jsonp(salesmen);
+//		}
+//	});
+//};
 
 /**
  * Add Task of Salesmen

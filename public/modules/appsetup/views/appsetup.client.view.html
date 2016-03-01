@@ -1,0 +1,69 @@
+<aside class="nav-wrap sub-nav"
+       ng-include=" 'modules/appsetup/views/elements-nav.html'">
+</aside>
+
+<section class="page-mini" data-ng-controller="AppsetupController">
+     <div class="btn-group" ng-init="radioModel='Order'">
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="loadMobile('order')">
+            <i class="ion ion-monitor"></i>
+            Order
+        </label>
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'forms'" uncheckable md-ink-ripple ng-click="loadMobile('forms')">
+            <i class="ion ion-clipboard"></i>
+            Forms</label>
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'signing'" uncheckable md-ink-ripple ng-click="loadMobile('signing')">
+            <i class="ion ion-edit"></i>
+            Signing</label>
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'camera'" uncheckable md-ink-ripple ng-click="loadMobile('camera')">
+            <i class="ion ion-ios-camera"></i>
+            Camera</label>
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'tracking'" uncheckable md-ink-ripple ng-click="loadMobile('order')">
+            <i class="ion ion-ios-location"></i>
+            Tracking</label>
+    </div>
+
+    <div class="app-status" style="
+    position: fixed;
+    left:600px;
+    top:115px;
+    z-index: 100;
+    width: 320px;
+    height: 20px;
+    box-sizing: border-box;
+    margin-bottom: -20px;
+    pointer-events: none;
+    font-size: 12px;
+    font-family: Helvetica, arial, sans-serif;
+    background: url('https://creator.ionic.io/img/dashboard/iphone-statusbar-black.png') no-repeat transparent center;
+        background-size: 100%;">
+    </div>
+
+    <!--<div ng-include src="modules/appsetup/views/frame.html" style="position: fixed;left:600px; height:568px;border-radius: 2px;-->
+    <!--box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);-->
+<!--border: none;-->
+<!--background-color: white;"></div>-->
+
+    <!--<div ng-include="'../../../AppFolder/56d489dbf4e1b2123258b3d1/app.html'" style="position: fixed;left:600px; top:115px;height:568px;border-radius: 2px;-->
+    <!--box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);-->
+<!--border: none;-->
+<!--background-color: white;" jqyoui-droppable="{multiple:true, iframeFix: true}"></div>-->
+
+    <!--<div ng-include="'../../modules/appsetup/views/frame.html'" style="position: fixed;left:600px; top:115px;width:320px;height:568px;border-radius: 2px;-->
+    <!--box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);-->
+<!--border: none;-->
+<!--background-color: white;" jqyoui-droppable="{multiple:true, iframeFix: true}"></div>-->
+
+    <iframe id="droppable" width="320px" height="568px" name="{{frameName}}" ng-src="{{frameUrl}}" style="position: fixed;left:600px; top:115px;height:568px;border-radius: 2px;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);
+border: none;
+background-color: white;" data-jqyoui-options jqyoui-droppable="{multiple:true}"></iframe>
+
+    <!-- block buttons -->
+    <div class="col-md-5 col-sm-6" style="float: right;margin-top: 200px;">
+
+                 <button type="button" class="btn btn-pink btn-block" md-ink-ripple>Reset</button>
+                 <button type="button" class="btn btn-primary btn-block" md-ink-ripple>Save</button>
+     </div> <!-- #end block buttons
+    
+    <!--<div class="page-mini" ng-include=" 'AppFolder/frame.html'"></div>-->
+</section>

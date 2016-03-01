@@ -2,9 +2,9 @@
 
 module.exports = {
   app: {
-    title: 'Techwiss',
-    description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
-    keywords: 'MongoDB, Express, AngularJS, Node.js'
+    title: 'SaleIQ',
+    description: 'SaleIQ Analytics Dashboard',
+    keywords: 'SaleIQ, Analytics, Dashboard, Mobile, ERP'
   },
   port: process.env.PORT || 3000,
   templateEngine: 'swig',
@@ -24,6 +24,7 @@ module.exports = {
       ],
       js: [
         'public/lib/jquery/dist/jquery.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
         'public/lib/angular/angular.js',
         //'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js',
         'public/lib/ng-file-upload/ng-file-upload-shim.min.js',
@@ -67,6 +68,8 @@ module.exports = {
         'public/lib/angular-google-places-autocomplete/src/autocomplete.js',
         'public/modules/app/SimpleWebRTC/socket.io.js',
           'public/lib/angular-material-data-table/dist/md-data-table.min.js',
+          'public/lib/angular-material-data-table/dist/md-data-table.min.js',
+          'public/lib/angular-dragdrop/src/angular-dragdrop.js',
           'public/lib/ngmap/build/scripts/ng-map.min.js'
       ]
     },

@@ -1,8 +1,83 @@
-<aside class="nav-wrap sub-nav"
-       ng-include=" 'modules/appsetup/views/elements-nav.html'">
+<section   data-ng-controller="AppsetupController">
+
+<aside class="nav-wrap sub-nav">
+
+<nav class="site-nav clearfix" role="navigation"  data-ng-init="find()">
+
+    <div class="profile clearfix mb15">
+
+        <accordion class="accordion-panel nav-list">
+
+            <accordion-group is-open="status.open">
+                <accordion-heading>
+                    Forms<i class="right mt2 ion small" ng-class="{'ion-chevron-down': status.open, 'ion-chevron-right': !status.open}" style="    color: initial;"></i>
+                </accordion-heading>
+                <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active style="margin: -22px;">
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', iframeFix: true, helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-navicon-round"></i>
+                            <span class="text">TextBox</span>
+                        </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid',iframeFix: true,  helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-toggle-filled"></i>
+                        <span class="text">Toggle</span>
+                    </a></li>
+
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid',iframeFix: true, helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-checkmark-circled"></i>
+                        <span class="text">checkbox</span>
+                    </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', iframeFix: true,  helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}"><a href="javascript:void(0)" md-ink-ripple>
+                        <i class="ion ion-android-chat"></i>
+                        <span class="text">Comments</span>
+                    </a></li>
+
+                </ul>
+
+            </accordion-group>
+
+            <accordion-group heading="Order" is-open="true">
+                <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active style="margin: -22px;">
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', iframeFix: true, helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-ios-search-strong"></i>
+                            <span class="text">SKU Search</span>
+                        </a></li>
+                    <li data-drag="true" data-jqyoui-options="{revert: 'invalid', iframeFix: true,  helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion ion-clipboard"></i>
+                            <span class="text">Order Form</span>
+                        </a></li>
+                </ul>
+
+            </accordion-group>
+
+
+            <accordion-group is-open="status2.open">
+                <accordion-heading>
+                    Extra<i class="right mt2 ion small" ng-class="{'ion-chevron-down': status2.open, 'ion-chevron-right': !status2.open}" style="    color: initial;"></i>
+                </accordion-heading>
+                <ul class="list-unstyled clearfix nav-list mb15" collapse-nav-accordion highlight-active style="margin: -22px;">
+                    <li data-drag="true" ng-repeat="component in htmlComponentList" data-jqyoui-options="{revert: 'invalid', iframeFix: true, helper: 'clone', appendTo: 'body'}" ng-model="list1" jqyoui-draggable="{ animate: true, placeholder: 'keep',onStart:'startCallback(component)', onStop: 'stopCallback', onDrag: 'dragCallback'}">
+                        <a href="javascript:void(0)" md-ink-ripple>
+                            <i class="ion {{component.icon}}"></i>
+                            <span class="text">{{component.name}}</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </accordion-group>
+        </accordion>
+
+    </div>
+
+
+
+</nav>
+
 </aside>
 
-<section class="page-mini" data-ng-controller="AppsetupController">
+<section class="page-mini">
      <div class="btn-group" ng-init="radioModel='Order'">
         <label class="btn btn-default" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="loadMobile('order')">
             <i class="ion ion-monitor"></i>
@@ -53,17 +128,31 @@
 <!--border: none;-->
 <!--background-color: white;" jqyoui-droppable="{multiple:true, iframeFix: true}"></div>-->
 
-    <iframe id="droppable" width="320px" height="568px" name="{{frameName}}" ng-src="{{frameUrl}}" style="position: fixed;left:600px; top:115px;height:568px;border-radius: 2px;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);
-border: none;
-background-color: white;" data-jqyoui-options jqyoui-droppable="{multiple:true}"></iframe>
+    <!--<div id="draggable" class="ui-widget-content">-->
+        <!--<p>Drag me to my target</p>-->
+    <!--</div>-->
+
+    <!--<button id="droppable" class="ui-widget-header">-->
+        <!--<p>Drop here</p>-->
+    <!--</button>-->
+
+    <!--<iframe src="modules/appsetup/views/y.html"></iframe>-->
+
+    <iframe id="phone" width="320px" height="568px" name="{{frameName}}" src="modules/appsetup/views/frame.html#56d4849c39a098c4314a4148" style="position: fixed;left:600px; top:115px;height:568px;border-radius: 2px; box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);border: none;background-color: white;" data-drop="true" jqyoui-droppable="{multiple:true,onDrop:'dropCallback',onOver: 'overCallback', onOut: 'outCallback'}" ></iframe>
+
+     <!--<iframe id="droppable" width="320px" height="568px" name="{{frameName}}" ng-src="{{frameUrl}}" style="border-radius: 2px; box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);border: none;background-color: white;"></iframe>-->
+ <!--<iframe id="droppable" width="320px" height="568px" name="{{frameName}}" ng-src="{{frameUrl}}" style="position: fixed;left:600px; top:115px;height:568px;border-radius: 2px;-->
+    <!--box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.05);-->
+<!--border: none;-->
+<!--background-color: white;" data-jqyoui-options jqyoui-droppable="{multiple:true}"></iframe>-->
 
     <!-- block buttons -->
     <div class="col-md-5 col-sm-6" style="float: right;margin-top: 200px;">
 
-                 <button type="button" class="btn btn-pink btn-block" md-ink-ripple>Reset</button>
-                 <button type="button" class="btn btn-primary btn-block" md-ink-ripple>Save</button>
+                 <button type="button" class="btn btn-pink btn-block" md-ink-ripple ng-click="reset()">Reset</button>
+                 <button type="button" class="btn btn-primary btn-block" md-ink-ripple ng-click="save()">Save</button>
      </div> <!-- #end block buttons
     
     <!--<div class="page-mini" ng-include=" 'AppFolder/frame.html'"></div>-->
 </section>
+    </section>

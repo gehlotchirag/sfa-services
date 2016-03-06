@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Salesman = mongoose.model('Salesman'),
 	_ = require('lodash');
+var fs = require('fs');
 
 /**
  * Create a Salesman
@@ -163,6 +164,23 @@ exports.pagesend = function(req, res) {
   //res.sendfile('.../../views/test.html', {root: __dirname })
   res.sendfile('views/templates/apptemplate.html', {root: __dirname+ '../../' })
 }
+
+exports.pagesave = function(req, res) {
+  var htmlTemplate = req.body.htmlTemplate;
+  var companyId = req.body.companyId;
+
+  var dirname = "public/AppFolder/"+companyId+"/";
+  console.log(dirname);
+  fs.existsSync(dirname) || fs.mkdirSync(dirname);
+  fs.writeFile(dirname+'/app.html', htmlTemplate, function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log(data);
+    res.json({'fileupated' :companyId });
+  });
+}
+
 exports.addSalesmanTrack = function(req, res) {
   console.log("&&&& ----- &&&&&");
   var track = req.body;

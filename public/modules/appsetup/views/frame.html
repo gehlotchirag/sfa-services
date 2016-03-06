@@ -5,8 +5,10 @@
 
     <title>Page</title>
 
-    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <link href="../../../lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="../../../lib/ionic/js/ionic.bundle.js"></script>
+    <!--<script src="../services/appsetup.client.service.js"></script>-->
+
 <style>
     .has-header{
         top: 64px !important;
@@ -25,7 +27,8 @@
      <!--<div ng-if="comapnyID" ng-include="CurrentAppPage"></div>-->
 <ion-content style="top: 64px; !important;">
     <!--<div ng-if="comapnyID" ng-include="CurrentAppPage"></div>-->
-    <div data-ng-bind-html="htmlcontent"></div>
+    <!--<div id="phonedata" data-ng-bind-html="htmlcontent"></div>-->
+    <div id="phonedata" dynamic="htmlcontent"></div>
 
 </ion-content>
 
@@ -37,17 +40,36 @@
 
 </body>
 <script>
-    angular.module('ionicApp', ['ionic'])
-            .controller('MyPageCtrl', function($scope,$http,$sce) {
+     angular.module('ionicApp', ['ionic'])
+     .directive('dynamic', function ($compile) {
+         return {
+             restrict: 'A',
+             replace: true,
+             link: function (scope, ele, attrs) {
+                 scope.$watch(attrs.dynamic, function(html) {
+                     ele.html(html);
+                     $compile(ele.contents())(scope);
+                 });
+             }
+         };
+     })
+     .controller('MyPageCtrl', ['$scope','$http','$sce','$compile', function($scope,$http,$sce,$compile) {
                 $scope.htmlcontent='';
                  $scope.comapnyID = location.hash.replace(/#/, "");
                 $scope.CurrentAppPage= '../../../AppFolder'+$scope.comapnyID+"/app.html";
                 console.log($scope.CurrentAppPage);
+
+                window.updatedata = function(data) {
+                    $scope.$apply(function(){
+                        $scope.htmlcontent = data;
+                    });
+                };
+
                 $http.get('../../../AppFolder/'+$scope.comapnyID+'/app.html').then(function(response) {
                     $scope.htmlcontent = $sce.trustAsHtml(response.data);
                     console.log($scope.htmlcontent)
                 });
 
-             });
+             }]);
 </script>
 </html>

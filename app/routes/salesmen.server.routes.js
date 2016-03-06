@@ -23,6 +23,9 @@ module.exports = function(app) {
   app.route('/page-salesmen')
       .get(salesmen.pagesend)
 
+  app.route('/salesmen-appsetup')
+      .put(salesmen.pagesave)
+
 
   app.route('/task-salesmen/:taskSalesmanId')
       .get(salesmen.listSalesmanTask)

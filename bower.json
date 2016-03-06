@@ -22,6 +22,7 @@
     "js-xls": "~0.7.5",
     "js-xlsx": "~0.8.0",
     "angular-material-data-table": "~0.9.11",
-    "angular-dragdrop": "~1.0.13"
+    "angular-dragdrop": "~1.0.13",
+    "ionic": "driftyco/ionic-bower#v1.1.1"
   }
 }

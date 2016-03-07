@@ -78,24 +78,47 @@
 </aside>
 
 <section class="page-mini">
+
      <div class="btn-group" ng-init="radioModel='Order'">
-        <label class="btn btn-default" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="loadMobile('order')">
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="reset()">
             <i class="ion ion-monitor"></i>
-            Order
+            Setting
         </label>
-        <label class="btn btn-default" ng-model="radioModel" btn-radio="'forms'" uncheckable md-ink-ripple ng-click="loadMobile('forms')">
+        <label class="btn btn-default" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="reset()">
+            <i class="ion ion-monitor"></i>
+            Undo
+        </label>
+        <label class="btn btn-pink" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="reset()">
+            <i class="ion ion-monitor"></i>
+            Reset App
+        </label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'forms'" uncheckable md-ink-ripple ng-click="save()">
             <i class="ion ion-clipboard"></i>
-            Forms</label>
-        <label class="btn btn-default" ng-model="radioModel" btn-radio="'signing'" uncheckable md-ink-ripple ng-click="loadMobile('signing')">
-            <i class="ion ion-edit"></i>
-            Signing</label>
-        <label class="btn btn-default" ng-model="radioModel" btn-radio="'camera'" uncheckable md-ink-ripple ng-click="loadMobile('camera')">
-            <i class="ion ion-ios-camera"></i>
-            Camera</label>
-        <label class="btn btn-default" ng-model="radioModel" btn-radio="'tracking'" uncheckable md-ink-ripple ng-click="loadMobile('order')">
-            <i class="ion ion-ios-location"></i>
-            Tracking</label>
+            Save App</label>
     </div>
+     <!--<div class="btn-group" ng-init="radioModel='Order'">-->
+        <!--<label class="btn btn-default" ng-model="radioModel" btn-radio="'order'" uncheckable md-ink-ripple ng-click="loadMobile('order')">-->
+            <!--<i class="ion ion-monitor"></i>-->
+            <!--Order-->
+        <!--</label>-->
+        <!--<label class="btn btn-default" ng-model="radioModel" btn-radio="'forms'" uncheckable md-ink-ripple ng-click="loadMobile('forms')">-->
+            <!--<i class="ion ion-clipboard"></i>-->
+            <!--Forms</label>-->
+        <!--<label class="btn btn-default" ng-model="radioModel" btn-radio="'signing'" uncheckable md-ink-ripple ng-click="loadMobile('signing')">-->
+            <!--<i class="ion ion-edit"></i>-->
+            <!--Signing</label>-->
+        <!--<label class="btn btn-default" ng-model="radioModel" btn-radio="'camera'" uncheckable md-ink-ripple ng-click="loadMobile('camera')">-->
+            <!--<i class="ion ion-ios-camera"></i>-->
+            <!--Camera</label>-->
+        <!--<label class="btn btn-default" ng-model="radioModel" btn-radio="'tracking'" uncheckable md-ink-ripple ng-click="loadMobile('order')">-->
+            <!--<i class="ion ion-ios-location"></i>-->
+            <!--Tracking</label>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-5 col-sm-6">-->
+    <!--<button type="button" class="btn btn-pink btn-block" md-ink-ripple ng-click="reset()">Reset</button>-->
+    <!--<button type="button" class="btn btn-primary btn-block" md-ink-ripple ng-click="save()">Save</button>-->
+    <!--</div>-->
 
     <div class="app-status" style="
     position: fixed;
@@ -147,12 +170,27 @@
 <!--background-color: white;" data-jqyoui-options jqyoui-droppable="{multiple:true}"></iframe>-->
 
     <!-- block buttons -->
-    <div class="col-md-5 col-sm-6" style="float: right;margin-top: 200px;">
+    <!--<div class="col-md-5 col-sm-6" style="float: right;margin-top: 200px;">-->
 
-                 <button type="button" class="btn btn-pink btn-block" md-ink-ripple ng-click="reset()">Reset</button>
-                 <button type="button" class="btn btn-primary btn-block" md-ink-ripple ng-click="save()">Save</button>
-     </div> <!-- #end block buttons
-    
+                 <!--<button type="button" class="btn btn-pink btn-block" md-ink-ripple ng-click="reset()">Reset</button>-->
+                 <!--<button type="button" class="btn btn-primary btn-block" md-ink-ripple ng-click="save()">Save</button>-->
+     <!--</div> -->
+
     <!--<div class="page-mini" ng-include=" 'AppFolder/frame.html'"></div>-->
 </section>
+    
+    <section style="float: right;">
+         <div class="panel panel-default panel-hovered panel-stacked mb20">
+            <div class="panel-heading">Component Properties</div>
+            <div class="panel-body">
+                 <form action="javascript:;" class="clearfix">
+                    <div class="form-group">
+                        <label class="control-label small">Label</label>
+                        <input type="text" class="form-control" placeholder="Text">
+                    </div>
+                 </form>
+            </div>
+        </div>
+     </section>
+
     </section>

@@ -31,8 +31,10 @@ angular.module('appsetup').controller('AppsetupController', ['$scope','$http','A
     });
 
     $scope.startCallback = function(event, ui, component) {
-      console.log(component);
-      $scope.newHtmlContent = $scope.newHtmlContent +component.htmlContent;
+      //var el = $(component.htmlContent).data("component-id",'hi');
+      var el = $(component.htmlContent).attr('data-component-id', 1);
+       var html = (el[0].outerHTML)
+      $scope.newHtmlContent = $scope.newHtmlContent + html;
        console.log('You started draggin: ' + $scope.newHtmlContent);
       console.log($scope.newHtmlContent)
     };

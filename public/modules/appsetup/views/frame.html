@@ -7,11 +7,20 @@
 
     <link href="../../../lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="../../../lib/ionic/js/ionic.bundle.js"></script>
+    <script src="../../../lib/jquery/dist/jquery.min.js"></script>
     <!--<script src="../services/appsetup.client.service.js"></script>-->
 
 <style>
     .has-header{
         top: 64px !important;
+    }
+    .hover
+    {   pointer-events: none;
+         border: 1px solid #4a87ee;
+        border-radius: 3px;
+        background-color: rgba(105, 151, 242, 0.05);
+        z-index: 15;
+        box-sizing: border-box;
     }
 </style>
 </head>
@@ -53,7 +62,7 @@
              }
          };
      })
-     .controller('MyPageCtrl', ['$scope','$http','$sce','$compile', function($scope,$http,$sce,$compile) {
+     .controller('MyPageCtrl', ['$scope','$http','$sce','$compile','$ionicPlatform', function($scope,$http,$sce,$compile,$ionicPlatform) {
                 $scope.htmlcontent='';
                  $scope.comapnyID = location.hash.replace(/#/, "");
                 $scope.CurrentAppPage= '../../../AppFolder'+$scope.comapnyID+"/app.html";
@@ -70,6 +79,28 @@
                     console.log($scope.htmlcontent)
                 });
 
+         $ionicPlatform.ready(function() {
+             var result = document.getElementsByClassName("component");
+
+             console.log('platform Ready!',result);
+         })
+
              }]);
+</script>
+
+<script>
+
+    $(function() {
+        $("body").on("click", "label", function(){
+            $("body").find('.hover').removeClass("hover");
+            $(this).addClass('hover')
+
+ //                function(){ $(this).addClass('hover') },
+//                function(){ $(this).removeClass('hover') }
+
+            console.log("******")
+        });
+
+     });
 </script>
 </html>

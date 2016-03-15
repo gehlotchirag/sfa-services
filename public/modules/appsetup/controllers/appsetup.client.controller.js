@@ -17,6 +17,11 @@ angular.module('appsetup').controller('AppsetupController', ['$scope','$http','A
         "name": "Tracking",
         "icon": "ion-ios-location",
         "htmlContent": '<li class="item item-toggle">Toggle <label class="toggle toggle-assertive"> <input type="checkbox"> <div class="track"> <div class="handle"></div> </div> </label> </li>'
+      },
+       {
+        "name": "Button",
+        "icon": "ion-ios-circle-filled",
+        "htmlContent": '<button class="button button-positive button-block">button-positive </button>'
       }
     ];
      //$scope.init();

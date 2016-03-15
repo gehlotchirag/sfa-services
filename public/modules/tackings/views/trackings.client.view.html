@@ -3,11 +3,44 @@
 </aside>
 
 <section class="page-mini" data-ng-controller="TrackingsController">
-    <div class="panel mini-box">
+    <div class="btn-group" ng-init="radioModel='Order'">
+        <label class="btn btn-default" ng-model="today" ng-click="today = true" btn-radio="'order'" uncheckable md-ink-ripple ng-click="reset()">
+            <i class="ion ion-android-walk"></i>
+            Today
+        </label>
+        <label class="btn btn-default" ng-model="yesterday" ng-click="makeFalse()" btn-radio="'order'" uncheckable md-ink-ripple ng-click="reset()">
+            <i class="ion ion-android-walk"></i>
+            Yesterday
+        </label>
+    </div>
+    <br/>
+
+    <div class="panel mini-box" ng-show="today">
         <div class="panel-body">
-            <map zoom="13" center="42.360082,-71.05888">
-                <marker ng-repeat="doctor in visitingDoctor" position="{{doctor.location[1]}}, {{doctor.location[0]}}" on-click="showInfoWindowz(event, doctor)"></marker>
+            <map zoom="14" style="height: 550px;">
+                <directions
+                        draggable="false"
+                        travel-mode="DRIVING"
+                        origin="Malad west, Mumbai"
+                        waypoints="{{wayPoints}}"
+                        destination="Kandivali west, Mumbai">
+                </directions>
             </map>
         </div>
     </div>
+
+    <div class="panel mini-box" ng-show="!today">
+        <div class="panel-body">
+             <map zoom="14" style="height: 550px;">
+                <directions
+                        draggable="false"
+                        travel-mode="DRIVING"
+                        origin="Malad west, Mumbai"
+                        waypoints="{{wayPoints}}"
+                        destination="Kandivali west, Mumbai">
+                </directions>
+            </map>
+        </div>
+    </div>
+
 </section>
